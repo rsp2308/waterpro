@@ -1,0 +1,60 @@
+@keyframes neon-glow {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #00f, 0 0 70px #00f, 0 0 80px #00f, 0 0 100px #00f, 0 0 150px #00f;
+    }
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #00f, 0 0 35px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 75px #00f;
+    }
+}
+
+.text-neon-blue {
+    color: #00f;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+.text-neon-green {
+    color: #0f0;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+.text-neon-purple {
+    color: #f0f;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+.text-neon-yellow {
+    color: #ff0;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+.text-neon-indigo {
+    color: #4b0082;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+.shadow-neon-blue {
+    box-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
+}
+
+.shadow-neon-green {
+    box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+}
+
+.shadow-neon-purple {
+    box-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f;
+}
+
+.shadow-neon-yellow {
+    box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+}
+
+.shadow-neon-indigo {
+    box-shadow: 0 0 10px #4b0082, 0 0 20px #4b0082, 0 0 30px #4b0082;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
