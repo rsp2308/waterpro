@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback Survey</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="quiz.js"></script>
+</head>
+<body>
+    <div class="survey-container">
+        <h1>User Feedback Survey</h1>
+        <form id="surveyForm"  action="/submit-survey" method="POST">
+            <!-- Personal Information -->
+            <div class="section">
+                <h2>Personal Information</h2>
+                <label for="name">Full Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="age">Age:</label><br>
+                <input type="number" id="age" name="age" min="1" max="120" required><br><br>
+            </div>
+
+            <!-- Opinion on Water Pollution -->
+            <div class="section">
+                <h2>Your Opinion on Water Pollution</h2>
+                <label for="concern">How concerned are you about water pollution?</label><br>
+                <select id="concern" name="concern" required>
+                    <option value="">--Select an option--</option>
+                    <option value="Very concerned">Very concerned</option>
+                    <option value="Somewhat concerned">Somewhat concerned</option>
+                    <option value="Not concerned">Not concerned</option>
+                </select><br><br>
+
+                <label>Which sources of water pollution worry you the most? (Select all that apply)</label><br>
+                <input type="checkbox" id="plastic" name="sources" value="Plastic Waste">
+                <label for="plastic">Plastic Waste</label><br>
+
+                <input type="checkbox" id="chemicals" name="sources" value="Chemical Waste">
+                <label for="chemicals">Chemical Waste</label><br>
+
+                <input type="checkbox" id="sewage" name="sources" value="Sewage Discharge">
+                <label for="sewage">Sewage Discharge</label><br>
+
+                <input type="checkbox" id="industrial" name="sources" value="Industrial Waste">
+                <label for="industrial">Industrial Waste</label><br><br>
+
+                <label>Which sources of water pollution worry you the most? (Select all that apply)</label><br>
+                <input type="checkbox" id="plastic" name="sources" value="Plastic Waste">
+                <label for="plastic">Plastic Waste</label><br>
+
+                <input type="checkbox" id="chemicals" name="sources" value="Chemical Waste">
+                <label for="chemicals">Chemical Waste</label><br>
+
+                <input type="checkbox" id="sewage" name="sources" value="Sewage Discharge">
+                <label for="sewage">Sewage Discharge</label><br>
+
+                <input type="checkbox" id="industrial" name="sources" value="Industrial Waste">
+                <label for="industrial">Industrial Waste</label><br><br>
+            </div>
+
+            <!-- Opinion Section -->
+            <div class="section">
+                <h2>Your Actions and Opinions</h2>
+                <label>Have you ever participated in activities to reduce water pollution?</label><br>
+                <input type="radio" id="yes" name="activities" value="Yes" required>
+                <label for="yes">Yes</label><br>
+
+                <input type="radio" id="no" name="activities" value="No" required>
+                <label for="no">No</label><br><br>
+
+                <label for="suggestions">What do you think could help reduce water pollution?</label><br>
+                <textarea id="suggestions" name="suggestions" rows="4" cols="50" placeholder="Share your thoughts..." required></textarea><br><br>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="thankyouMessage" style="display:none;">
+            <h2>Thank you for your feedback!</h2>
+            <p>Your response has been recorded.</p>
+        </div>
+    </div>
+
+   
+</body>
+</html>
