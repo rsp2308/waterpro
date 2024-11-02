@@ -7,17 +7,18 @@
     <title>Water Resources Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body class="bg-black text-white font-sans">
+<body class="bg-gray-900 text-white font-sans">
     <header class="bg-gradient-to-r from-blue-600 to-purple-600 p-4 shadow-lg">
         <nav class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-neon-blue">Water Resources Dashboard</h1>
-            <div class="hidden md:flex space-x-4">
-                <a href="#" class="text-white hover:text-neon-green transition">Home</a>
-                <a href="index3.html" class="text-white hover:text-neon-green transition">Analytics</a>
-                <a href="index2.html" class="text-white hover:text-neon-green transition">Resources</a>
-                <a href="quiz.html" class="text-white hover:text-neon-green transition">Quiz</a>
+            <h1 class="text-3xl font-bold text-white">Water Resources Dashboard</h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-yellow-400 transition">Home</a>
+                <a href="index2.html" class="text-white hover:text-yellow-400 transition">Analytics</a>
+                <a href="index3.html" class="text-white hover:text-yellow-400 transition">Resources</a>
+                <a href="quiz.html" class="text-white hover:text-yellow-400 transition">Quiz</a>
             </div>
             <button class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars"></i>
@@ -27,31 +28,28 @@
 
     <main class="container mx-auto mt-8 px-4">
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-gradient-to-br from-blue-900 to-purple-900 p-6 rounded-lg shadow-neon-blue">
-                <h2 class="text-xl font-semibold mb-4 text-neon-blue">Water Level Visualization</h2>
+            <div class="bg-gradient-to-br from-blue-900 to-purple-900 p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Water Level Visualization</h2>
                 <div class="h-64 bg-gray-800 rounded-md flex items-center justify-center">
-                    <p class="text-neon-green">Interactive Chart Placeholder</p>
+                    <canvas id="waterLevelChart"></canvas>
                 </div>
             </div>
 
-            <div class="bg-gradient-to-br from-green-900 to-blue-900 p-6 rounded-lg shadow-neon-green">
-                <h2 class="text-xl font-semibold mb-4 text-neon-green">Region Selection</h2>
+            <div class="bg-gradient-to-br from-green-900 to-blue-900 p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Region Selection</h2>
                 <select class="w-full bg-gray-800 text-white p-2 rounded-md">
-                    <option>Select Region</option>
-                    <option>North</option>
-                    <option>South</option>
-                    <option>East</option>
-                    <option>West</option>
+                    <option value="">Select a region</option>
+                    <option value="north">North</option>
+                    <option value="south">South</option>
+                    <option value="east">East</option>
+                    <option value="west">West</option>
                 </select>
             </div>
 
-            <div class="bg-gradient-to-br from-purple-900 to-pink-900 p-6 rounded-lg shadow-neon-purple">
-                <h2 class="text-xl font-semibold mb-4 text-neon-purple">Data Analysis Tools</h2>
-                <div class="space-y-2">
-                    <button class="w-full bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700 transition">Trend
-                        Forecasting</button>
-                    <button class="w-full bg-gray-800 text-white p-2 rounded-md hover:bg-gray-700 transition">Region
-                        Comparison</button>
+            <div class="bg-gradient-to-br from-purple-900 to-red-900 p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4 text-white">Recent Reports</h2>
+                <div class="h-64 bg-gray-800 rounded-md flex items-center justify-center">
+                    <img src="https://via.placeholder.com/150" alt="Placeholder Image" class="rounded-md">
                 </div>
             </div>
         </section>
@@ -59,7 +57,7 @@
         <section class="mt-12">
             <h2 class="text-2xl font-bold mb-6 text-neon-blue">Interactive Map</h2>
             <div class="h-96 bg-gray-800 rounded-lg flex items-center justify-center">
-                <p class="text-neon-green">Interactive Map Placeholder</p>
+                <img src="https://images.unsplash.com/photo-1589519160732-57fc498494f" alt="Map Image" class="rounded-md">
             </div>
         </section>
 
@@ -98,11 +96,35 @@
         </section>
     </main>
 
-    <footer class="mt-16 bg-gradient-to-r from-blue-900 to-purple-900 p-4">
+    <footer class="bg-gray-800 p-4 mt-8">
         <div class="container mx-auto text-center">
-            <p>&copy; 2024 Odoyle Water Corporation. All rights reserved.</p>
+            <p class="text-gray-400">&copy; 2023 Water Resources Dashboard. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const ctx = document.getElementById('waterLevelChart').getContext('2d');
+        const waterLevelChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Water Level',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
